@@ -21,6 +21,13 @@ pub fn get_user_input() -> io::Result<String> {
     Ok(input.trim().to_string())
 }
 
+pub fn get_master_password_user_input() -> io::Result<String> {
+    println!("Enter your master password:");
+    let mut input = String::new();
+    io::stdin().read_line(&mut input)?;
+    Ok(input.trim().to_string())
+}
+
 pub fn get_clipboard_password() -> String {
     let mut ctx = ClipboardContext::new().unwrap();
     ctx.get_contents().unwrap()
